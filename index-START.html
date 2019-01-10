@@ -6,6 +6,9 @@
 </head>
 <body>
   <h2>Cool</h2>
+  <h2>Cool</h2>
+  <h2>Cool</h2>
+  <h2>Cool</h2>
   <nav class="top">
     <div class="dropdownBackground">
       <span class="arrow"></span>
@@ -157,7 +160,7 @@
     background: #fff;
     border-radius: 4px;
     box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);
-    transition: all 0.3s, opacity 0.1s, transform 0.2s;
+    transition: all 0.3s, opacity 0.1s, translate 0.2s;
     transform-origin: 50% 0;
     display: flex;
     justify-content: center;
@@ -238,11 +241,15 @@
 
     const coords = {
       height: dropdownCoords.height,
-      width: dropdownCoords.width
+      width: dropdownCoords.width,
+      top: dropdownCoords.top - navCoords.top,
+      left: dropdownCoords.left,
     };
 
     background.style.setProperty('width', `${coords.width}px`);
     background.style.setProperty('height', `${coords.height}px`);
+    background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`
+  );
   }
 
   function handleLeave() {
